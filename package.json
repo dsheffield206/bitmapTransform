@@ -1,0 +1,29 @@
+{
+  "name": "bitmaptransform",
+  "version": "1.0.0",
+  "description": "bitmap tranformer for js d49 class at code fellows",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsheffield206/bitmapTransform.git"
+  },
+  "author": "david and tomo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsheffield206/bitmapTransform/issues"
+  },
+  "homepage": "https://github.com/dsheffield206/bitmapTransform#readme",
+  "devDependencies": {
+    "chai": "^3.2.0",
+    "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.3.0"
+  }
+}
