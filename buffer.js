@@ -1,7 +1,12 @@
 'use strict';
 
-var buf = new Buffer('hello world');
-Array.prototype.forEach.call(buf, function(data, index) {
-  buf[index] = 255 - data;
+var fs = require('fs');
+
+var buf = new Buffer(8);
+
+console.log(buf);
+
+fs.readFile('./lib/non-palette-bitmap.bmp', function(err, data){
+  if (err) return console.log('error madude:', err);
+  console.log('this is dat file thing ', data);
 });
-console.log(buf.toString('utf-8'));
