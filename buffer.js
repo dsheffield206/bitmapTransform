@@ -1,12 +1,20 @@
 'use strict';
 
 var fs = require('fs');
-
+var EE = require('events').EventEmitter
 var buf = new Buffer(8);
+var fileEvents = new EE;
+
 
 
 // fs.readFile('./lib/non-palette-bitmap.bmp', function(err, data){
 fs.readFile('./lib/palette-bitmap.bmp', function(err, data){
+
+fileEvents.on('done', function(data) {
+  fileEvents.emit('done', data.toString());
+  console.log('done');
+});
+
   if (err) return console.log('error madude:', err);
   console.log('this is dat file thing ', data);
   console.log(data.length);
@@ -48,6 +56,7 @@ fs.readFile('./lib/palette-bitmap.bmp', function(err, data){
 });
 
 
-
-
+process.next(function() {
+  setTimeout(function() {fileEvents.emit('done', data.toString());}, 1000);
+});
 
