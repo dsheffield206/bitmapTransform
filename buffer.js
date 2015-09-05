@@ -3,51 +3,47 @@
 var fs = require('fs');
 var EE = require('events').EventEmitter;
 var buf = new Buffer(8);
-var fileEvents = new EE;
+var fileEvents = new EE();
+var bufData = 0;
+var colorPalette = module.exports = {};
 
-
-// fs.readFile('./lib/non-palette-bitmap.bmp', function(err, data){
-fs.readFile('./lib/palette-bitmap.bmp', function(err, data){
+fs.readFile(__dirname + '/lib/palette-bitmap.bmp', function(err, data){
+// fs.readFile(__dirname + '/lib/non-palette-bitmap.bmp', function(err, data){
   if (err) return console.log('error madude:', err);
-    console.log('this is dat file thing ', data);
-    console.log(data.length);
+    // console.log('this is dat file thing ', data);
+    colorPalette['length'] =data.readUInt32LE(2);//11078
+    colorPalette['width'] = data.readUInt32LE(18);//100
+    colorPalette['height']= data.readUInt32LE(22);//100
+    colorPalette['bitsPerPix'] = data.readUInt32LE(28);//8 in palette, 24 in non
+    colorPalette['type'] = data.toString('utf8', 0, 2);//BM
 
-    // buf[index] = data;
-    // console.log(buf.toString('utf-8'));
-    var type  = data.toString('utf8', 0, 2);  //starts at 0 and reads 2 spaces 0,1
-    console.log(type);
-    // var type2 = data.readUInt8LE(0);
-    // console.log(type2);
+var palette = function(){
+    var j = 0;
+    for (var i = 53; i < 310; i++ ){
+        colorPalette[j] = data.readUInt8(i);  //if >52 palette
+        j++;
 
-    var size =data.readUInt32LE(2);  //also will use UInt16 and 8
-    console.log(size);//30054
-    var width = data.readUInt32LE(18);
-    var height = data.readUInt32LE(22);
-    console.log(width, height);
-
-    var bitsPerPix = data.readUInt32LE(28);
-    console.log(bitsPerPix); //24 in non-palette 8 in palette
-
-    var firstPix = data.readUInt32LE(10);  //if >55 palette
-    console.log(firstPix);  //non palette 54, palette 1078  0-40 header 41-54   55-1077 palette map
-
-    var firstColor = data.readUInt8(62);
-    console.log(firstColor);
-
-
-// var colorPalette = data.readUInt32(46); for palette bit map, errors on non-palette
-// console.log(colorPalette);  //falsy to test for palette or non
-
-//header info 14 bytes
-//header size 40 bytes
-
-  //bm type= starts at offset 14
-
-  // var somedata = data.slice(100,150);
-  // console.log(somedata);
-  // data.writeUInt32LE();
-  // console.log(data);
+  // palette 1078  0-40 header, 41-52   53-1077 palette map
+    }
+    return(colorPalette);
+  };
+  console.log('colorPalette', palette());
 });
+debugger;
+
+sortColors();
+function sortColors(){
+  var x = colorPalette[9];
+  console.log('first set',x);
+}
+
+
+
+
+
+
+
+
 
 fileEvents.on('done', function(data) {
   fileEvents.emit('done', data.toString());
@@ -55,7 +51,7 @@ fileEvents.on('done', function(data) {
 });
 
 
-process.next(function() {
-  setTimeout(function() {fileEvents.emit('done', data.toString());}, 1000);
-});
+// process.next(function() {
+//   setTimeout(function() {fileEvents.emit('done', data.toString());}, 1000);
+// });
 
