@@ -1,5 +1,5 @@
 'use strict';
-var cp = require('../buffer');
+var cp = require('../lib/buffer');
 
 console.log(cp);
 
