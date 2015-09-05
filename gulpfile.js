@@ -9,7 +9,7 @@ var bufData = require('./lib/buffer');
 gulp.task('buff', function(){
   return gulp.src('./lib/buffer.js')
   // .pipe(jshint)
-  // .pipe(gulp.dest('lib'));
+  .pipe(gulp.dest('lib'));
 });
 
 
