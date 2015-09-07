@@ -11,7 +11,7 @@ gulp.task('buff', function(){
   // .pipe(gulp.dest('lib'));
 });
 
-gulp.task('trans',['oldColor'], function(){
+gulp.task('trans', function(){
   return gulp.src('./lib/transform.js');
   // .pipe(jshint);
   // console.log('running trans from gulp');
@@ -22,13 +22,13 @@ gulp.task('oldColor',['buff'], function(){
   // .pipe(gulp.dest('lib'));
 });
 
-gulp.task('default', ['buff','oldColor']);
+gulp.task('default', ['buff']);
 
-gulp.task('jshint', function() {
-  return gulp.src(['buffer.js', 'test/**/*.js', 'lib/**/*.js', 'gulpfile.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
-});
+// gulp.task('jshint', function() {
+//   return gulp.src(['buffer.js', 'test/**/*.js', 'lib/**/*.js', 'gulpfile.js'])
+//     .pipe(jshint())
+//     .pipe(jshint.reporter('default'));
+// });
 
 // gulp.task('test', function() {
 //   return gulp.src('test/**/*.js')
