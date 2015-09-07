@@ -9,7 +9,6 @@ var CPalette = require('../lib/color-map');
 var Trans = require('../lib/transform');
 
 
-
 // Testing that the paletteInfo Object exists
 describe('color palette test', function() {
   before(function (done) {
