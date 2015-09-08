@@ -6,6 +6,7 @@ var gulpMocha = require('gulp-mocha');
 var chai = require('chai');
 var bufData = require('./lib/buffer');
 
+
 gulp.task('buff', function(){
   return gulp.src('./lib/buffer.js');
   // .pipe(gulp.dest('lib'));
