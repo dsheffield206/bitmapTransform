@@ -8,15 +8,15 @@ var CPalette = require('../lib/color-map');
 
 
 // Testing that CPalette data exists and is not void
-describe('object data exists test', function() {
-  it('data from the stream should not be null', function() {
+describe('CPalette', function() {
+  it('should not be null', function() {
     expect(CPalette[20]).to.not.eql(null);
     console.log('data exists test');
   });
 });
 
 // Testing that the data has changed
-describe('color change test', function() {
+describe('darken', function() {
   it('should change the data from CPalette', function() {
     expect(CPalette.darken(data)).to.not.eql(CPalette.invert(data));
     console.log('color change test');
