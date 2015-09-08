@@ -8,5 +8,5 @@
 + Images are saved in the /img folder.
 + buffer.js is in the /lib folder and it is responsible for reading and writing the file.
 + color-map.js is also in the /lib folder and it actually executes the darken and invert functions on our buffer object data.
-+ bmp_text.js in the /test folder is what completes 2 Mocha / Chai tests.
++ test.js in the /test folder is what completes 2 Mocha / Chai tests.
 + package.JSON itemizes all of our Node.js depencies.
