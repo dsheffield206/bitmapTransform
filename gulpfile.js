@@ -6,11 +6,16 @@ var gulpMocha = require('gulp-mocha');
 var chai = require('chai');
 var bufData = require('./lib/buffer');
 
-
 gulp.task('buff', function(){
   return gulp.src('./lib/buffer.js');
   // .pipe(gulp.dest('lib'));
 });
+
+// gulp.task('trans', function(){
+//   return gulp.src('./lib/transform.js');
+  // .pipe(jshint);
+  // console.log('running trans from gulp');
+// });
 
 gulp.task('oldColor',['buff'], function(){
   return gulp.src('./lib/color-maps.js');
