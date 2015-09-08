@@ -3,5 +3,7 @@ node_modules
 new-palette-bitmap.bmp
 newImage.js
 newImage.bmp
+darkenImage.bmp
+invertImage.bmp
 
 
