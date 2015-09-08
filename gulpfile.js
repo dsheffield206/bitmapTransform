@@ -11,7 +11,6 @@ gulp.task('buff', function(){
   // .pipe(gulp.dest('lib'));
 });
 
-
 gulp.task('oldColor',['buff'], function(){
   return gulp.src('./lib/color-maps.js');
   // .pipe(gulp.dest('lib'));
