@@ -23,4 +23,6 @@ describe('darken', function() {
   });
 });
 
-// exports.test = test;
+
+exports.test = test;
+
