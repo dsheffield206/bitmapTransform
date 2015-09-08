@@ -10,4 +10,3 @@
 + color-map.js is also in the /lib folder and it actually executes the darken and invert functions on our buffer object data.
 + test.js in the /test folder is what completes 2 Mocha / Chai tests.
 + package.JSON itemizes all of our Node.js depencies.
-
