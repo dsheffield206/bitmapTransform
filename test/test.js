@@ -24,5 +24,3 @@ describe('darken', function() {
 
 
 
-exports.test = test;
-
