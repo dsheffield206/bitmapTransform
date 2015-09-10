@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 
 var fs = require('fs');
@@ -21,5 +21,3 @@ describe('darken', function() {
     console.log('color change test');
   });
 });
-
-
